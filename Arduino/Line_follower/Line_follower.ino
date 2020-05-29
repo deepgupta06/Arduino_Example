@@ -1,0 +1,45 @@
+int Lsensor=8;
+int Rsensor=9;
+int RM1=2;
+int RM2=3;
+int LM1=4;
+int LM2=5;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(Rsensor, INPUT);
+  pinMode(Lsensor,INPUT);
+  pinMode(RM1, OUTPUT);
+  pinMode(RM2, OUTPUT);
+  pinMode(LM1, OUTPUT);
+  pinMode(LM2, OUTPUT);
+
+
+}
+
+void loop() {
+  if ( digitalRead(Lsensor)== HIGH)
+{
+  Serial.println(digitalRead(Lsensor));
+digitalWrite(RM1, HIGH);
+digitalWrite(RM2, LOW);
+digitalWrite(LM1, LOW);
+digitalWrite(LM2, LOW);
+}
+else if( digitalRead(Rsensor)==HIGH)
+{
+  Serial.println(digitalRead(Rsensor));
+digitalWrite(RM1, LOW);
+digitalWrite(RM2, LOW);
+digitalWrite(LM1, LOW);
+digitalWrite(LM2, HIGH);
+}
+else {
+  digitalWrite(RM1, HIGH);
+digitalWrite(RM2, LOW);
+digitalWrite(LM1, LOW);
+digitalWrite(LM2,HIGH);
+}
+}
+
+
